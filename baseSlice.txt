@@ -1,0 +1,42 @@
+import {createSlice} from "@reduxjs/toolkit"
+
+type initialStateInterface = {
+    windowOpen:boolean;
+    targetWindow:string
+}
+const initialState: initialStateInterface = {
+    windowOpen:false,
+    targetWindow:'user'
+}
+
+const loginWindowStateSlice = createSlice({
+    name:'loginWindowStateSlice',
+    initialState,
+    reducers:{
+        setLoginOpen:(st) => {
+            st.windowOpen = true
+        },
+        setLoginClose:(st) => {
+            st.windowOpen = false
+        },
+        setToggleLogin:(st) => {
+            st.windowOpen = !st.windowOpen
+        },
+        setArtistWindow:(st) => {
+            st.targetWindow = 'artist'
+        },
+        setUserWindow:(st) => {
+            st.targetWindow = 'user'
+        },
+    }
+})
+
+export const {
+    setLoginOpen, 
+    setLoginClose,
+    setToggleLogin, 
+    setArtistWindow,
+    setUserWindow
+} = loginWindowStateSlice.actions
+
+export default loginWindowStateSlice

@@ -1,0 +1,47 @@
+import { baseApi } from "@shared/api/baseApi";
+import { UserPropsInterface } from "@shared/type";
+const baseUrl = '/users'
+
+
+export const userAccApi = baseApi.injectEndpoints({
+    endpoints:(builder) => ({
+
+        getUserInfo: builder.query<UserPropsInterface, void>({
+            query: () => ({
+                url: `${baseUrl}/me`,
+                method: 'GET',
+                withAuth: true,
+            }),
+          providesTags: ['Users'],
+        }),
+
+        updateUserInfo: builder.mutation<any, { }>({
+            query: (body) => ({
+              url: '/users/update',
+              method: 'PATCH',
+              withAuth: true,
+              data: body,
+            }),
+            invalidatesTags: ['Users']
+          }),
+
+          getOrderDetails: builder.query<any, number>({
+            query: (orderId) => ({
+              url: `/orders/${orderId}`,
+              method: 'GET',
+              withAuth: true,
+            }),
+          }),
+        
+
+    })
+})
+
+export const {
+    useGetOrderDetailsQuery,
+    useLazyGetOrderDetailsQuery,
+    useGetUserInfoQuery,
+    useLazyGetUserInfoQuery,
+    useUpdateUserInfoMutation
+} = userAccApi
+

@@ -1,0 +1,24 @@
+
+//prod
+npm install @emotion/react
+npm install @emotion/styled
+npm install @mui/material
+npm install @reduxjs/toolkit
+npm install axios
+npm install framer-motion
+npm install js-cookie
+npm install react-modal
+npm install react-redux
+npm install react-router-dom
+npm install react-toastify
+npm install redux-persist
+
+//dev
+npm install -D @eslint/js
+npm install -D @types/js-cookie
+npm install -D @vitejs/plugin-react-swc
+npm install -D eslint-plugin-react-hooks
+npm install -D eslint-plugin-react-refresh
+npm install -D globals
+npm install -D typescript-eslint
+npm install -D vite-plugin-svgr
